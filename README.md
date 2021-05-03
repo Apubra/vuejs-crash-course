@@ -135,3 +135,36 @@ And finally add router view in your main App component.
 Router Link:
 Now you can link your router like that:
 <router-link to="/about">About</router-link>
+
+# Vuex
+Some of vuex function:
+<script>
+import $ from 'jquery'
+import {  mapGetters } from 'vuex';
+import store from "../store";
+export default {
+  name: 'holderregistration',
+  components: {
+  },
+  computed: mapGetters(['isLoggedIn']),
+  methods: {
+      register(){
+          let username = $("#username").val();
+          let email = $("#email").val();
+          let password = $("#password").val();
+          store.dispatch('finalizeLogin',{username, email, password})
+          
+          console.log(store.getters.isLoggedIn.email);
+      }
+  }
+}
+</script>
+
+{{isLoggedIn}}
+
+Note: Show in details in the following repo:
+https://github.com/Apubra/vue-project
+
+
+
+Let's more practice...
