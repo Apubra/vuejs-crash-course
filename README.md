@@ -167,4 +167,44 @@ https://github.com/Apubra/vue-project
 
 
 
+how to run script for specific component in vue?
+Use mounted method.
+
+Difference between the created and mounted events in Vue.js
+created() : since the processing of the options is finished you have access to reactive data properties and change them if you want. At this stage DOM has not been mounted or added yet. So you cannot do any DOM manipulation here
+
+mounted(): called after the DOM has been mounted or rendered. Here you have access to the DOM elements and DOM manipulation can be performed for example get the innerHTML:
+
+console.log(element.innerHTML)
+So your questions:
+
+Is there any case where created would be used over mounted?
+Created is generally used for fetching data from backend API and setting it to data properties. But in SSR mounted() hook is not present you need to perform tasks like fetching data in created hook only
+
+What can I use the created event for, in real-life (real-code) situation?
+For fetching any initial required data to be rendered(like JSON) from external API and assigning it to any reactive data properties
+
+Example:
+  created() {
+      // $('#date').text(new Date().getFullYear())
+    },
+  mounted() {
+      $('#date').text(new Date().getFullYear())
+    },
+
+Page not found routing:
+{ path: '/:pathMatch(.*)*', component: PageNotFound }
+
+
+
+# Component Structure
+Sidebar(Menubar)
+Navbar(Header)
+Content(Body)
+Footer
+
+
+Note: We need separate all design in different components.
+Otherwise we can reuse design.
+
 Let's more practice...
