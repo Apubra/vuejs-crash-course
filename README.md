@@ -42,6 +42,7 @@ Or,
 Add <script> tag to index.html
 Just add the <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/sl-1.2.5/datatables.min.js"></script> to the end of the index.html file, preferably right before </body>.
 
+Note: your assets files need to go public folder
 # Props
 You can pass data to one component to another component.
 <Nwe title="I am props"/>
@@ -206,5 +207,35 @@ Footer
 
 Note: We need separate all design in different components.
 Otherwise we can reuse design.
+
+Note: You need to use full url otherwise you will get No 'Access-Control-Allow-Origin' error.
+Example: http://localhost:3000/api/login
+
+
+# Access JWT Secret key or any Environment variable in VueJs
+First create a .env file in your root directory
+Then add your environment value like-
+VUE_APP_SECRETKEY=YourPassword
+
+process.env.VUE_APP_SECRETKEY;
+
+Note: Make sure you define your variable name using prefix VUE_APP_
+
+
+# Router Middleware Navigation Guards
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    console.log("From beforeEach");
+  } else {
+    next();
+  }
+});
+
+This will works for every routes.
+We can specify using Route Meta Fields
+
+{ path: '/login', component: login, meta: { requiresAuth: true }},
+
+
 
 Let's more practice...
