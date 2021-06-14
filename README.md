@@ -236,6 +236,14 @@ We can specify using Route Meta Fields
 
 { path: '/login', component: login, meta: { requiresAuth: true }},
 
-
+# 
+# Datatables in Vue
+Sometimes it's pain to manage data tables in vue.
+Because, load cdn is not work in vue-router
+So, you need to install it using npm
+npm i datatables.net-bs4
+And import it the following way-
+import 'datatables.net-bs4';
+// require( 'datatables.net-bs4');
 
 Let's more practice...
