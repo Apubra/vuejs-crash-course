@@ -167,6 +167,17 @@ Note: Show in details in the following repo:
 https://github.com/Apubra/vue-project
 
 
+# State data lifetime
+State data holds until browser refresh.
+we can't get previous stored data after refreshing browser.
+
+There is no guarantee that our client will not refresh browser.
+
+So, how we can load data once and can use it forever.
+We can take this advantage to sed data document load time.
+When browser load state function call every time.
+We have set data state value default empty that's why this problem is happen.
+So, we need to call the api and set state data in our state file.
 
 how to run script for specific component in vue?
 Use mounted method.
